@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eureka
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: eureka
+  template:
+    metadata:
+      labels:
+        app: eureka
+    spec:
+      nodeSelector:
+        "beta.kubernetes.io/os": linux
+      containers:
+      - name: eureka
+        image: soumya.azurecr.io/eureka:eureka
+        ports:
+        - containerPort: 8077
+          name: eureka
+      imagePullSecrets:
+      - name: spring-boot-app
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: eureka
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 8077
+  selector:
+    app: eureka
