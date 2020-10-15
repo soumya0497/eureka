@@ -47,7 +47,7 @@ node
 	 } */
 	 
 	 stage('Kubernetes Prod Deployment'){
-	 withKubeConfig([credentialsId: 'kube_config']) {
+	 withKubeConfig([credentialsId: 'config']) {
       sh "sed 's/\$COMMIT/${commit_id}/g' ${DEPLOY_YAML_FILE} | kubectl apply -f - "
 	 }
 	 }
