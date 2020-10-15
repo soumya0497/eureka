@@ -1,0 +1,40 @@
+server:
+  port: ${APP_PORT:8077}
+  
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://localhost:8077/eureka/
+  server:
+    waitTimeInMsWhenSyncEmpty: 0
+    response-cache-update-interval-ms: 2000
+    enableSelfPreservation: false  
+#management:
+#  security:
+#    enabled: false
+    
+#spring:
+#  cloud:
+#    config:
+#      server:
+#        prefix: /config
+#        git:
+#          uri: ${GIT_URL}
+#          search-paths:
+#          - applicationConfigurationFiles
+#          username: ${GIT_USERNAME}
+#          password: ${GIT_PASSWORD}
+#    boot:
+#    admin:
+#      context-path: /admin
+#management:
+#  server:
+#    servlet:
+#      context-path: /admin     
+
+
+          
