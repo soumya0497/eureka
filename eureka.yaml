@@ -16,7 +16,7 @@ spec:
         "beta.kubernetes.io/os": linux
       containers:
       - name: eureka
-        image: soumya.azurecr.io/eureka:eureka
+        image: soumya.azurecr.io/eureka:$COMMIT
         ports:
         - containerPort: 8077
           name: eureka
